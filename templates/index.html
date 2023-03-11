@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>100/100</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="shortcut icon" href="/static/img/favicon.jpg" type="image/x-icon"> 
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<div class="breaking-news">
+    <div class="bn-title"><span>Свежие записи:</span></div>
+    <div class="news-ticker">
+        <div class="tickercontainer">
+             <div class="mask">
+                  <div class="newsticker" id="" >
+                      <span> 
+                          <a class="ps-3" href="#">
+                            <img class="bi me-2" width="25" height="25" src="/static/img/favicon.jpg" /> 
+                          </a> 
+                          <i class="fas">&raquo;</i><a href="#">Прогресс бар на чистом CSS3</a> 
+                          <i class="fas">&raquo;</i><a href="#">Интересное адаптивное flexMenu на jQuery</a> 
+                          <i class="fas">&raquo;</i><a href="#">Адаптивное меню на чистом CSS</a> 
+                          <i class="fas">&raquo;</i><a href="#">Установка Bootstrap 4</a> 
+                          <i class="fas">&raquo;</i><a href="#">Верстка сайта на Bootstrap 4</a> 
+                          <i class="fas">&raquo;</i><a href="#">Введение в bootstrap</a> 
+                          <i class="fas">&raquo;</i><a href="#">Правильная структура URL адресов</a>
+                      </span>
+                  </div>
+              </div>
+         </div>
+     </div>
+</div>
+
+<button type="button" class="btn btn-outline-primary" onclick="stopLine()" >Button</button>
+
+<!-- <nav class="navbar navbar-expand-lg   bg-body-tertiary"  data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Навбар</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Переключатель навигации">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Ссылка</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Выпадающий список
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Действие</a></li>
+            <li><a class="dropdown-item" href="#">Другое действие</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Что-то еще здесь</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled">Отключенная</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+        <button class="btn btn-outline-success" type="submit">Поиск</button>
+      </form>
+    </div>
+  </div>
+</nav> -->
+
+
+<!-- <ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">Active</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Action</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link">Another link</a>
+    </li>
+    <li class="nav-item">
+        <a href="#" class="nav-link disabled">Disabled</a>
+    </li>
+</ul> -->
+<body>
+  <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <script>
+    var ind=1
+    function stopLine(){
+        if (ind==1){
+          document.querySelector('.newsticker span').style.setProperty("--speed_go","50s");
+          ind=0;
+        }
+        else{
+          document.querySelector('.newsticker span').style.setProperty("--speed_go","");
+          ind=1;
+        }
+    }
+
+  </script>
+  <style>
+    :root{
+    
+    --speed_stop:0s;
+    }   
+
+
+    .breaking-news{height:40px;margin:15px 0;clear:both;position:relative}
+    .breaking-news .bn-title{float:left;background:#007bff;line-height:40px;height:40px;padding:0 1px 0 7px;color:#fff;position:relative;z-index:2;font-weight:700;text-align:center;width:133px}
+    .breaking-news .bn-title:after{left:100%;top:50%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(187,0,0,0);border-left-color:#007bff;border-width:20px;margin-top:-20px;z-index:1;border-left-width:10px}
+    .news-ticker{
+      background:#fff;
+      height:40px;
+      line-height:38px;
+      margin:0;
+      border:1px solid #3f2c2c;
+      padding:0 2px 0 10px;
+      margin-left:130px; /*130*/
+      position:relative;
+      z-index:1;
+      overflow:hidden
+    }
+    .tickercontainer{
+      height:38px;
+      margin:0;
+      padding:0;
+      overflow:hidden;
+    }
+    .tickercontainer .mask{
+      position:relative;
+      height:38px;
+      overflow:hidden;
+    }
+    
+      .breaking-news .bn-title span{
+        z-index:2;
+        position:relative
+      }
+
+    @-webkit-keyframes scroll {
+    50%{-webkit-transform:translate(0,0);transform:translate(0,0)}
+    50%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}
+    }
+    @-moz-keyframes scroll {
+    50%{-moz-transform:translate(0,0);transform:translate(0,0)}
+    50%{-moz-transform:translate(-100%,0);transform:translate(-100%,0)}
+    }
+    @keyframes scroll {
+    50%{transform:translate(0,0)}
+    50%{transform:translate(-100%,0)}
+    }
+    .newsticker{display:block;width:100%;white-space:nowrap;overflow:hidden}
+    .newsticker span{
+        --speed_go:-1;
+        display:inline-block;
+        padding-left:0%;
+        -webkit-animation:scroll var(--speed_go) infinite linear;
+        -moz-animation:scroll var(--speed_go) infinite linear; 
+        animation:scroll var(--speed_go)  infinite linear;
+        overflow:auto;
+    }
+    .fas{margin-left:21px;margin-right:5px}
+    </style>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
