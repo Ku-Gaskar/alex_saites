@@ -1,0 +1,42 @@
+
+{% extends 'base.j2' %}
+{% block content_body %}
+
+<header>
+{% block header %}
+  
+<div class="breaking-news">
+    <div class="bn-title" type="button" onclick="stopLine()"><span>Све</span></div>
+    <div class="news-ticker">
+        <div class="tickercontainer">
+             <div class="mask">
+                  <div class="newsticker" id="" >
+                      <span> 
+                          <a class="ps-2" href="#">
+                            <img class="bi me-2" width="25" height="25" src="/static/img/favicon.jpg" /> 
+                          </a> 
+                          <a class="ps-2" href="#">Прогресс</a> 
+                          <a class="ps-2" href="#">Интересное </a> 
+                          <a class="ps-2" href="#">Адаптивное </a> 
+
+                      </span>
+                  </div>
+              </div>
+         </div>
+     </div>
+</div>
+{% endblock header %}
+</header>
+
+  <main>
+{% block main %}
+  
+{% endblock main %}
+  </main>
+  <footer>
+{% block footer %}
+  
+{% endblock footer %}
+  </footer>
+{% endblock content_body %}
+  

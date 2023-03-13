@@ -1,0 +1,72 @@
+:root{
+    
+    --speed_stop:0s;
+    }   
+
+
+    .breaking-news{height:20px;margin:15px 0;clear:both;position:relative}
+    .breaking-news .bn-title{
+      float:left;
+      background:#007bff;
+      line-height:40px;
+      height:40px;
+      padding:0 1px 0 7px;
+      color:#fff;
+      position:relative;
+      z-index:2;
+      font-weight:700;
+      text-align:center;
+      width:33px}
+    .breaking-news .bn-title:after{left:100%;top:50%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(187,0,0,0);border-left-color:#007bff;border-width:20px;margin-top:-20px;z-index:1;border-left-width:10px}
+    .news-ticker{
+      background:#fff;
+      height:40px;
+      line-height:38px;
+      margin:0;
+      border:1px solid #1b1a1a;
+      padding:0 2px 0 10px;
+      margin-left:30px; /*130*/
+      position:relative;
+      z-index:1;
+      overflow:hidden
+    }
+    .tickercontainer{
+      height:38px;
+      margin:0;
+      padding:0;
+      overflow:hidden;
+    }
+    .tickercontainer .mask{
+      position:relative;
+      height:38px;
+      overflow:hidden;
+    }
+    
+      .breaking-news .bn-title span{
+        z-index:2;
+        position:relative
+      }
+
+    @-webkit-keyframes scroll {
+    50%{-webkit-transform:translate(0,0);transform:translate(0,0)}
+    50%{-webkit-transform:translate(-100%,0);transform:translate(-100%,0)}
+    }
+    @-moz-keyframes scroll {
+    50%{-moz-transform:translate(0,0);transform:translate(0,0)}
+    50%{-moz-transform:translate(-100%,0);transform:translate(-100%,0)}
+    }
+    @keyframes scroll {
+    50%{transform:translate(0,0)}
+    50%{transform:translate(-100%,0)}
+    }
+    .newsticker{display:block;width:100%;white-space:nowrap;overflow:hidden}
+    .newsticker span{
+        --speed_go:-1;
+        display:inline-block;
+        padding-left:0%;
+        -webkit-animation:scroll var(--speed_go) infinite linear;
+        -moz-animation:scroll var(--speed_go) infinite linear; 
+        animation:scroll var(--speed_go)  infinite linear;
+        overflow:auto;
+    }
+    .fas{margin-left:21px;margin-right:5px}
