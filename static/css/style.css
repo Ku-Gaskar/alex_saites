@@ -1,8 +1,26 @@
 :root{
     
     --speed_stop:0s;
+    --alex_color:#04139e;
+    --alex_color_text:aliceblue;
     }   
 
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .content {
+      flex:1;
+      }
+
+
+      footer {
+        background:var(--alex_color);
+        /* color: var(--alex_color_text); */
+      }
+      
 
     .breaking-news{height:20px;margin:15px 0;clear:both;position:relative}
     .breaking-news .bn-title{
@@ -16,16 +34,32 @@
       z-index:2;
       font-weight:700;
       text-align:center;
-      width:33px}
-    .breaking-news .bn-title:after{left:100%;top:50%;border:solid transparent;content:" ";height:0;width:0;position:absolute;pointer-events:none;border-color:rgba(187,0,0,0);border-left-color:#007bff;border-width:20px;margin-top:-20px;z-index:1;border-left-width:10px}
+      width:43px}
+    
+    .breaking-news .bn-title:after{
+      left:100%;
+      top:50%;
+      border:solid transparent;
+      content:" ";
+      height:0;
+      width:0;
+      position:absolute;
+      pointer-events:none;
+      border-color:rgba(187,0,0,0);
+      border-left-color:#007bff;
+      border-width:20px;
+      margin-top:-20px;
+      z-index:1;
+      border-left-width:10px
+    }
     .news-ticker{
-      background:#fff;
+      background:#04139e;
       height:40px;
       line-height:38px;
       margin:0;
       border:1px solid #1b1a1a;
       padding:0 2px 0 10px;
-      margin-left:30px; /*130*/
+      margin-left:40px; /*130*/
       position:relative;
       z-index:1;
       overflow:hidden
@@ -59,7 +93,13 @@
     50%{transform:translate(0,0)}
     50%{transform:translate(-100%,0)}
     }
-    .newsticker{display:block;width:100%;white-space:nowrap;overflow:hidden}
+    
+    .newsticker{
+      display:block;
+      width:100%;
+      white-space:nowrap;
+      overflow:hidden
+    }
     .newsticker span{
         --speed_go:-1;
         display:inline-block;
@@ -69,4 +109,21 @@
         animation:scroll var(--speed_go)  infinite linear;
         overflow:auto;
     }
-    .fas{margin-left:21px;margin-right:5px}
+    
+    .a_po-1{
+      background-image: url("static/img/trailer.jpg");
+    }
+
+    .a_po-locomotive{
+      background-image: url("static/img/locomotive.jpg");
+    }
+    
+    .a_po-1,.a_po-locomotive{
+      position: relative;
+      width:80px;
+      height:38px;
+      background-size: cover;
+      text-align: center;
+    }
+    
+    

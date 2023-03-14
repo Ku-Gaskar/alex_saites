@@ -4,39 +4,50 @@
 
 <header>
 {% block header %}
-  
-<div class="breaking-news">
-    <div class="bn-title" type="button" onclick="stopLine()"><span>Све</span></div>
-    <div class="news-ticker">
-        <div class="tickercontainer">
-             <div class="mask">
-                  <div class="newsticker" id="" >
-                      <span> 
-                          <a class="ps-2" href="#">
-                            <img class="bi me-2" width="25" height="25" src="/static/img/favicon.jpg" /> 
-                          </a> 
-                          <a class="ps-2" href="#">Прогресс</a> 
-                          <a class="ps-2" href="#">Интересное </a> 
-                          <a class="ps-2" href="#">Адаптивное </a> 
-
-                      </span>
+      <div class="container-fluid">
+        <div class="row justify-content-center align-items-center g-2">
+          <div class="col-md-9 col-sm-12">
+            <div class="breaking-news">
+            <div class="bn-title" type="button" onclick="stopLine()"><span>Депо</span></div>
+              <div class="news-ticker">
+                <div class="tickercontainer">
+                  <div class="col-md-12 mask">
+                    <div class=" newsticker" >
+                        <span id="tyty" > 
+                          <span><div  class="a_po-locomotive"><a  href="#"><strong>Start</strong></a></div></span> 
+                          <span><div  class="a_po-1"><a class="text-decoration-none" style="color: brown;" href="#"><strong>tyty</strong></a></div></span> 
+                          <span><div  class="a_po-1"><a class="text-decoration-none" style="color: brown;" href="#"><strong>tyty</strong></a></div></span> 
+                          <span><div  class="a_po-1"><a class="text-decoration-none" style="color: brown;" href="#"><strong>tyty</strong></a></div></span> 
+                        </span>
+                    </div>
                   </div>
+                </div>
               </div>
-         </div>
-     </div>
-</div>
+            </div>          
+          </div>
+          <div class="col-md-3 col-sm-3 mt-4">
+                <form role="search">
+                <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                </form>
+          </div>
+        </div>
+      </div>
 {% endblock header %}
 </header>
-
-  <main>
+  <main class="content">
 {% block main %}
   
 {% endblock main %}
   </main>
-  <footer>
-{% block footer %}
-  
-{% endblock footer %}
-  </footer>
+{% block footer%}
+    <footer class="d-flex flex-wrap justify-content-between align-items-center p-2 border-top">
+        <div class="col-md-4 d-flex align-items-center">
+          <span class="mb-3 mb-md-0 text-light">&copy; 2023 Alex and Co, Inc</span>
+        </div>
+        <div class="col-md-4 d-flex align-items-end">
+          <span class="mb-3 mb-md-0 text-light">&copy; 2023 Alex and Co, Inc</span>
+        </div>
+    </footer>        
+{% endblock footer %} 
 {% endblock content_body %}
-  
+
