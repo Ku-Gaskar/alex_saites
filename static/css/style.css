@@ -111,11 +111,11 @@
     }
     
     .a_po-1{
-      background-image: url("static/img/trailer.jpg");
+      background-image: url("../img/trailer.jpg");
     }
 
     .a_po-locomotive{
-      background-image: url("static/img/locomotive.jpg");
+      background-image: url("../img/locomotive.jpg");
     }
     
     .a_po-1,.a_po-locomotive{
