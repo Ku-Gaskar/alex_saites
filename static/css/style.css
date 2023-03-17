@@ -1,7 +1,7 @@
 :root{
     
     --speed_stop:0s;
-    --alex_color:#04139e;
+    --alex_color:darkblue;
     --alex_color_text:aliceblue;
     }   
 
@@ -19,22 +19,26 @@
       footer {
         background:var(--alex_color);
         /* color: var(--alex_color_text); */
-      }
-      
+      }  
 
-    .breaking-news{height:20px;margin:15px 0;clear:both;position:relative}
+    .breaking-news{
+      height:20px;
+      margin:5px 0; 
+      clear:both;
+      position:relative
+    }
     .breaking-news .bn-title{
       float:left;
       background:#007bff;
-      line-height:40px;
-      height:40px;
+      line-height:50px;
+      height:50px;
       padding:0 1px 0 7px;
       color:#fff;
       position:relative;
       z-index:2;
       font-weight:700;
       text-align:center;
-      width:43px}
+      width:53px}
     
     .breaking-news .bn-title:after{
       left:100%;
@@ -53,9 +57,9 @@
       border-left-width:10px
     }
     .news-ticker{
-      background:#04139e;
-      height:40px;
-      line-height:38px;
+      background:darkblue;
+      height:50px;
+      line-height:48px;
       margin:0;
       border:1px solid #1b1a1a;
       padding:0 2px 0 10px;
@@ -65,14 +69,14 @@
       overflow:hidden
     }
     .tickercontainer{
-      height:38px;
+      height:48px;
       margin:0;
       padding:0;
       overflow:hidden;
     }
     .tickercontainer .mask{
       position:relative;
-      height:38px;
+      height:48px;
       overflow:hidden;
     }
     
@@ -118,10 +122,19 @@
       background-image: url("../img/locomotive.jpg");
     }
     
-    .a_po-1,.a_po-locomotive{
+    .a_po-locomotive{
       position: relative;
-      width:80px;
-      height:38px;
+      width:99px;
+      height:50px;
+      background-size: cover;
+            
+      text-align: center;
+    }
+
+    .a_po-1{
+      position: relative;
+      width:106px;
+      height:49px;
       background-size: cover;
       text-align: center;
     }
