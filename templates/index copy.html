@@ -2,74 +2,52 @@
 {% extends 'base.j2' %}
 {% block content_body %}
 
-<header >
+<header>
 {% block header %}
-<div class="container-fluid " >
-  <div class="table-responsive fixed-top bg-light " style="padding-top:136px; margin: 0 12px ;">
-    <!-- table-striped	 -->
-
-    <!-- <div class="fixed-top " style="padding-top:106px;">       -->
-      <!-- table-border
-      border-primary  
-      table-primary -->
-      <table class="table align-middle">
-        <colgroup>
-        <col width="10%">
-        <col width="30%">
-        <col width="15%">
-        <col width="20%">
-        <col width="25%">
-        </colgroup>                     
-        <thead class="table-light bg-light">      
-          <tr class="border border-primary">
-            <th class="border border-primary">ID</th>
-            <th class="border border-primary">Наименование</th>
-            <th class="border border-primary">Игроков</th>
-            <th class="border border-primary">Время</th>
-            <th class="border border-primary">Цена</th>
-          </tr>
-        </thead>
-      </table>
-    </div>
-  <!-- </div> -->
-</div>
-<div  class="fixed-top">
-<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
     <div class="container-fluid  ">       
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-md-0">
-          <li class="nav-item">
-            <a href="https://www.youtube.com/@pro100nastolki" class="text-decoration-none  px-2 " target="_blank">
+      <div class="row justify-content-between align-items-center ">
+      <div class="col-4 py-2 ">  
+        <div class="row justify-content-start align-items-center ">
+          <div class="col-2"></div> 
+          <div class="col-2 text-end">
+            <a href="https://www.youtube.com/@pro100nastolki" class="text-decoration-none text-end " target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="tomato" class="bi bi-youtube" viewBox="0 0 16 16">
                 <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
               </svg>
             </a>
-          </li>
-          <li class="nav-item">
-            <a href="https://www.facebook.com" class="text-decoration-none px-2" target="_blank">
+          </div>  
+          <div class="col-2 text-center ">
+            <a href="https://www.facebook.com" class="text-decoration-none" target="_blank">
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
                 <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
               </svg>
             </a>  
-          </li>
-          <li class="nav-item">
-            <a href="https://www.instagram.com" class="text-decoration-none glyphicon-heart px-2" target="_blank">
+          </div>
+          <div class="col-2 ">
+            <a href="https://www.instagram.com" class="text-decoration-none glyphicon-heart" target="_blank">
+              <!-- <img src="{{ url_for('static', filename='img/inst.png') }}" width="50" height="25">  -->
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="glyphicon-heart" class="bi bi-instagram " viewBox="0 0 16 16">
                 <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
               </svg>
-            </a>
-          </li>  
-        </ul>    
-          <a role="button" data-bs-toggle="modal" href="#modalId" class="text-decoration-none  pe-3" style="font-size: 1.5rem;">
-          <span><img src="{{ url_for('static', filename='img/фавикон2.png') }}" width="30" height="30"></span>
-        <span><img src="{{ url_for('static', filename='img/кубик 100на100.png') }}" width="30" height="30"></span>
-          <strong>Контакты</strong></a>
+            </a>  
+          </div>
+        </div>  
+      </div>  
+      <div class="col-4 pe-5">
+        <div class="row justify-content-end align-items-center ">
+          <div class="col-1">
+            <img src="{{ url_for('static', filename='img/фавикон2.png') }}" width="30" height="30"> 
+          </div>  
+        <div class="col-1 ps-3 ">
+          <img src="{{ url_for('static', filename='img/кубик 100на100.png') }}" width="30" height="30"> 
+        </div>      
+        <div class="col-3 pe-5 ps-4 ">
+          <a role="button" data-bs-toggle="modal" href="#modalId" class="text-decoration-none " style="font-size: 1.5rem;"><strong>Контакты</strong></a>
+        </div>
+        <div class="col-2"></div>      
+      </div>  
     </div>
-  </nav>
         <div class="row justify-content-center align-items-center " style="background-color:darkblue">
           <div class="col-md-9 col-sm-9">
             <div class="breaking-news">
@@ -90,7 +68,7 @@
               </div>
             </div>          
           </div>
-          <div class="col-md-3 col-sm-3 pe-5" >
+          <div class="col-md-3 col-sm-3" >
                 <form role="search">
                 <input class="form-control" type="search" placeholder="Поиск ..." aria-label="Search">
                 </form>
@@ -98,6 +76,7 @@
         </div>
       </div>
     </div>
+  </nav>
     <!-- Фильтр (offcanvas) боковая панель с формой ------>
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
       <div class="offcanvas-header">
@@ -110,80 +89,6 @@
         </div>
       </div>
     </div>
-{% endblock header %}
-</header>
-<main class="content">
-{% block main %}
-
-
-<div class="container-fluid">
-  <div class="table-responsive " style="padding-top:195px;" >
-     <!-- <caption>Table Name</caption>  -->
-     <!-- table-striped	  -->
-    <table class="table 
-                  table-border 
-                  table-primary
-                  align-middle">
-                  <colgroup>
-                    <col width="10%">
-                    <col width="30%">
-                    <col width="15%">
-                    <col width="20%">
-                    <col width="25%">
-                    </colgroup>                     
-            
-      <tbody class="table-group-divider">
-        {% for item in content.info  %}
-        <tr class="table-light" >
-          <td class="border border-primary">{{ item.id_game }}</td>
-          <td class=" justify-content-between border-buttom  border-primary">
-            <div class="d-flex justify-content-between align-items-center ">
-            <span>{{ item.name }}</span>
-            <!-- <div> -->
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" onclick="readSelect('{{item.id_game}}')" type="button" id="dropdownMenuButton{{ item.id_game |replace('.','_') }}"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ item.id_game |replace('.','_') }}" id="dropdownMenu{{ item.id_game |replace('.','_') }}"><!-- Existing menu items -->
-              </div>
-            </div>
-            </div>  
-          <!-- </div> -->
-          </td>
-          <td class="border border-primary">{{item.count_people}}</td>
-          <td class="border border-primary">{{ item.time_game }}</td>
-          <td class="border border-primary">{{ item.price }} грн.</td>
-          {% endfor %}  
-        </tr>
-      </tbody>
-      <tfoot>
-        
-      </tfoot>
-    </table>
-  </div>
-</div> 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
-<!-- <a name="" id=""  onclick="readSelect()"  class="btn btn-primary" href="#" role="button">Button</a> -->
-<!-- <button id="t12344" type="button" onclick="readSelect(id)" class="btn btn-primary">Button</button> -->
     <!-- ---------------------------------------------- -->
     <!-- Модальное окно с контактами --------------------->
     <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
@@ -258,10 +163,92 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
       </div>
     </div>
     <!-- ---------------------------------------------- -->
-
-
-
-
+{% endblock header %}
+</header>
+<main class="content mt-4">
+{% block main %}
+<div class="container-fluid mt-5">
+  <div class="table-responsive pt-5 ">
+    <!-- <caption>Table Name</caption> -->
+    <table class="table table-striped	
+  table-border 
+  
+  table-primary
+  align-middle">
+    <thead class="table-light">
+      <tr>
+        <th>ID</th>
+        <th>Наименование</th>
+        <th>Кол-во игроков</th>
+        <th>Время</th>
+        <th>Цена</th>
+      </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for item in content.info  %}
+        <tr class="table-primary " >
+          <td class="border border-primery">{{ item.id_game }}</td>
+          <td class="border border-primery">{{ item.name }}</td>
+          <td class="border border-primery">{{item.count_people}}</td>
+          <td class="border border-primery">{{ item.time_game }}</td>
+          <td class="border border-primery">{{ item.price }} грн.</td>
+          {% endfor %}  
+        </tr>
+      </tbody>
+      <tfoot>
+        
+      </tfoot>
+    </table>
+  </div>
+</div>
+  
+  
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus laborum illo dolor debitis sed blanditiis harum velit totam minus odio officiis excepturi ipsam eum veritatis a, optio nostrum repudiandae! Nam!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque eius ipsam aspernatur magni nisi, quisquam odio! Explicabo ad ipsum fugit delectus facilis dignissimos, nihil distinctio voluptates laboriosam labore nisi rem.</p>
   {% endblock main %}        
 </main>
 
@@ -276,80 +263,6 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
 </footer>        
 {% endblock footer %}
 
-<script>
-  function readSelect(id){
-    let url=`/selectJson/${id}`
-    fetch(url).then(function (response){
-      // alert(response.status);
-      if (response.ok){
-        response.text().then(function(text_){
-          addDropdownMenuItem(id, text_);
-        });
-      }
-    });
-  };
-     // Select the dropdown menu element
-  function addDropdownMenuItem(id,menu_items) {
-
-    const dropdownMenu = document.querySelector(`#dropdownMenu${id.replace('.','_')}`);
-
-    if (!sessionStorage.getItem(id)){
-      sessionStorage.setItem(id, id);
-      for (let key of menu_items.split(";")){
-        let newMenuItem = document.createElement('a');
-        newMenuItem.classList.add('dropdown-item');
-        newMenuItem.href = '#';
-        newMenuItem.textContent = key.split("':'")[1];
-        // Append the new menu item element to the dropdown menu
-        dropdownMenu.appendChild(newMenuItem);
-      }
-    }
-
-
-
-    if (  dropdownMenu.classList.contains('show')) {
-      dropdownMenu.classList.remove('show');
-    }
-      else{ 
-        for (let item of document.querySelectorAll(".dropdown-menu")){
-          if (  item.classList.contains('show')) {
-                    item.classList.remove('show');          
-          }  
-        };  
-        dropdownMenu.classList.add('show');
-
-      }
-
-    // const dropdownButton = document.querySelector('#dropdownMenuButton');
-    // dropdownButton.addEventListener('click', function() {
-    // dropdownButton.setAttribute('aria-expanded', 'true');
-  // });
-  };
-    window.onload = (event) => {  
-      sessionStorage.clear();
-};
-</script>
-
-
-
-
-
-   <!-- const headerDiv = document.getElementById('hd');
-   const ul = document.getElementById('uld');
-
-   headerDiv.addEventListener('mouseover', () => { // вешаем событие наведения курсора и пишем функцию, в которой говорим что делать по событию
-   headerDiv.classList.add('added');
-   ul.classList.add('added');
- }); -->
-
-<!-- <style>
-  .td .dropdown-menu:hover,
-  .td .dropdown-menu:focus
-  {
-    class: show;
-    
-  }
-</style> -->
 
 <!-- 
 <style>
