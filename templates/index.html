@@ -4,35 +4,52 @@
 
 <header >
 {% block header %}
-<div class="container-fluid " >
-  <div class="table-responsive fixed-top bg-light " style="padding-top:136px; margin: 0 12px ;">
+<style>
+  :root {
+      --border-width: 1px;
+      --border-color:blue;
+       /* #CED4DA; */
+      --border: var(--border-width) solid var(--border-color);
+  }
+  
+  table {
+    border-collapse: separate;
+    border-spacing: 1;
+    background-color:white;
+  }
+  
+  thead {
+      background-color:white;
+      position: sticky;
+      top: 100px;
+      z-index: 1;
+  }
+  
+  th, td {
+      border:var(--border); ;
+      /* border-right: var(--border);
+      border-bottom: var(--border);
+      border-left: var(--border);
+      border-top: var(--border); */
+  }
+  
+  /* th:first-child, td:first-child {
+      border-left: var(--border);
+  }
+  
+  thead tr:first-child th {
+      border-top: var(--border);
+  } */
+  
+  </style>
+<!-- <div class="container-fluid " >
+  <div class="table-responsive "> -->
     <!-- table-striped	 -->
 
     <!-- <div class="fixed-top " style="padding-top:106px;">       -->
       <!-- table-border
       border-primary  
       table-primary -->
-      <table class="table align-middle">
-        <colgroup>
-        <col width="10%">
-        <col width="30%">
-        <col width="15%">
-        <col width="20%">
-        <col width="25%">
-        </colgroup>                     
-        <thead class="table-light bg-light">      
-          <tr class="border border-primary">
-            <th class="border border-primary">ID</th>
-            <th class="border border-primary">Наименование</th>
-            <th class="border border-primary">Игроков</th>
-            <th class="border border-primary">Время</th>
-            <th class="border border-primary">Цена</th>
-          </tr>
-        </thead>
-      </table>
-    </div>
-  <!-- </div> -->
-</div>
 <div  class="fixed-top">
 <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid  ">       
@@ -79,7 +96,7 @@
                   <div class="col-md-12 mask">
                     <div class=" newsticker" >
                         <span id="tyty" > 
-                          <span><div  class="a_po-locomotive"><a class="text-decoration-none" style="font-size: 0.9rem;" href="#"><strong>Главная</strong></a></div></span> 
+                          <span><div  class="a_po-locomotive"><a class="text-decoration-none" style="font-size: 0.9rem;" href="/"><strong>Главная</strong></a></div></span> 
                           <span><div  class="a_po-1"><a data-bs-toggle="offcanvas" href="#staticBackdrop"  role="button" aria-controls="staticBackdrop" class="text-decoration-none" style="font-size:0.9rem;"><strong>Фильтр</strong></a></div></span> 
                           <span><div  class="a_po-1"><a class="text-decoration-none" style="font-size: 0.9rem;" href="#"><strong>Корзина</strong></a></div></span> 
                           <span><div  class="a_po-1"><a class="text-decoration-none "  style="font-size: 0.9rem;" role="button" data-bs-toggle="modal" href="#modalId"><strong>Контакты</strong></a></div></span> 
@@ -91,22 +108,10 @@
             </div>          
           </div>
           <div class="col-md-3 col-sm-3 pe-5" >
-                <form role="search">
-                <input class="form-control" type="search" placeholder="Поиск ..." aria-label="Search">
+                <form method="get" action="/searchGame" role="search">
+                <input class="form-control" type="search"  name="search"  placeholder="Поиск по названию" aria-label="Search">
                 </form>
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- Фильтр (offcanvas) боковая панель с формой ------>
-    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="staticBackdropLabel">Настройка фильтра</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-      </div>
-      <div class="offcanvas-body">
-        <div>
-          <h2>Выбери меня</h2>
         </div>
       </div>
     </div>
@@ -116,50 +121,90 @@
 {% block main %}
 
 
-<div class="container-fluid">
-  <div class="table-responsive " style="padding-top:195px;" >
+<div class="container-fluid ">
+  <!-- <div class="table-responsive " > -->
      <!-- <caption>Table Name</caption>  -->
      <!-- table-striped	  -->
+     
     <table class="table 
+                  table-responsive 
                   table-border 
-                  table-primary
-                  align-middle">
+                  table-light
+                  align-middle" >
                   <colgroup>
+                    <col width="6%">
+                    <col width="8%">
+                    <col width="38%">
+                    <col width="7%">
+                    <col width="7%">
+                    <col width="7%">
                     <col width="10%">
-                    <col width="30%">
-                    <col width="15%">
-                    <col width="20%">
-                    <col width="25%">
-                    </colgroup>                     
+                    <col width="8%">
+                    <col width="6%">
+                    </colgroup> 
+                    <thead>      
+                      <tr style=" position: sticky; top:150px; z-index: 1;">
+                        <th>код/артикул</th>
+                        <th>картинка</th>
+                        <th>название</th>
+                        <th>игроки</th>
+                        <th>время</th>
+                        <th>язык</th>
+                        <th>цена,грн</th>
+                        <th>состояние</th>
+                        <th>наличие</th>
+                      </tr>
+                    </thead>                  
             
-      <tbody class="table-group-divider">
+        <div  style="padding: 75px;">
+        <tbody class="table-group-divider"  >
         {% for item in content.info  %}
         <tr class="table-light" >
-          <td class="border border-primary">{{ item.id_game }}</td>
-          <td class=" justify-content-between border-buttom  border-primary">
+          <td>{{ item.id_game }}</td>
+          <td>
+            <img src="{{ url_for('static', filename='img/img_games/' + item.href_img + '.png') }}" width="60" height="60" alt="Game Image"></td>
+          <!-- название с выпадающим меню -->
+          <td class="justify-content-between">
             <div class="d-flex justify-content-between align-items-center ">
-            <span>{{ item.name }}</span>
+            <span>{{ item.name_game }}
+               {% if  item.name_game_ext %}{{ item.name_game_ext }}{% endif %}</span>
+                
+               
             <!-- <div> -->
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" onclick="readSelect('{{item.id_game}}')" type="button" id="dropdownMenuButton{{ item.id_game |replace('.','_') }}"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+            <div class="dropdown ">
+              <button class="btn btn-outline-primary dropdown-toggle" onclick="readSelect('{{item.id_game}}')" type="button" id="dropdownMenuButton{{ item.id_game |replace('.','_') }}"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ item.id_game |replace('.','_') }}" id="dropdownMenu{{ item.id_game |replace('.','_') }}"><!-- Existing menu items -->
               </div>
             </div>
             </div>  
-          <!-- </div> -->
           </td>
-          <td class="border border-primary">{{item.count_people}}</td>
-          <td class="border border-primary">{{ item.time_game }}</td>
-          <td class="border border-primary">{{ item.price }} грн.</td>
-          {% endfor %}  
+          <!-- --------------------------------->
+          <td>{% if item.count_people %} {{item.count_people}} {% endif %} </td>
+          <td>{% if item.time_game %}{{ item.time_game }}{% endif %}</td>            
+          <td>{% if  item.lang  %}{{ item.lang }} {% endif %}</td>
+          <td>{% if item.price  %}{{ item.price }}{% endif %}</td>
+          <td>{% if item.status %}{{ item.status }}{% endif %}</td>
+          <td>{% if item.available %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="green" class="bi bi-check-square" viewBox="0 0 16 16">
+              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+              <path d="M10.97 4.97a.75.75 0 0 1 1.071 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.235.235 0 0 1 .02-.022z"/>
+            </svg>               
+              {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="tomato" class="bi bi-dash-square" viewBox="0 0 16 16">
+                <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+              </svg>
+                
+            {% endif %}</td>          
         </tr>
+        {% endfor %}  
       </tbody>
       <tfoot>
         
       </tfoot>
     </table>
   </div>
-</div> 
+<!-- </div>  -->
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
@@ -184,35 +229,34 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis voluptatem tempora reprehenderit deleniti dignissimos maiores, sit nesciunt dolore quam laudantium fugiat, quos error beatae magni quasi velit eligendi nemo.
 <!-- <a name="" id=""  onclick="readSelect()"  class="btn btn-primary" href="#" role="button">Button</a> -->
 <!-- <button id="t12344" type="button" onclick="readSelect(id)" class="btn btn-primary">Button</button> -->
-    <!-- ---------------------------------------------- -->
-    <!-- Модальное окно с контактами --------------------->
-    <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-      <div class="modal-dialog modal-xl"  role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Контакты</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-          <div class="modal-body">
-            <div class="container-fluid">
-              Список контактов
-            </div>
-            <section class="position-relative py-4 py-xl-5">
-              <div class="container position-relative">
-                  <div class="row mb-5">
-                      <div class="col-md-8 col-xl-6 text-center mx-auto">
+<!-- Модальное окно с контактами --------------------->
+<div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+  <div class="modal-dialog modal-xl"  role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitleId">Контакты</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          Список контактов
+        </div>
+        <section class="position-relative py-4 py-xl-5">
+          <div class="container position-relative">
+            <div class="row mb-5">
+              <div class="col-md-8 col-xl-6 text-center mx-auto">
                           <h2>Contact us</h2>
                           <p class="w-lg-50">Curae hendrerit donec commodo hendrerit egestas tempus, turpis facilisis nostra nunc. Vestibulum dui eget ultrices.</p>
                       </div>
                   </div>
                   <div class="row d-flex justify-content-center">
                       <div class="col-md-6 col-lg-4 col-xl-4">
-                          <div class="d-flex flex-column justify-content-center align-items-start h-100">
+                        <div class="d-flex flex-column justify-content-center align-items-start h-100">
                               <div class="d-flex align-items-center p-3">
                                   <div class="bs-icon-md bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-telephone">
                                           <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"></path>
                                       </svg></div>
-                                  <div class="px-2">
+                                      <div class="px-2">
                                       <h6 class="mb-0">Phone</h6>
                                       <p class="mb-0">+123456789</p>
                                   </div>
@@ -249,7 +293,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
                       </div>
                   </div>
               </div>
-          </section>      </div>
+            </section>      </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Закрыть</button>
             <!-- <button type="button" class="btn btn-primary">Save</button> -->
@@ -258,11 +302,21 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
       </div>
     </div>
     <!-- ---------------------------------------------- -->
-
-
-
-
-  {% endblock main %}        
+    <!-- Фильтр (offcanvas) боковая панель с формой ------>
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="staticBackdropLabel">Настройка фильтра</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- <div> -->
+          <h2>Выбери меня</h2>   
+        <!-- </div> -->
+        {% include 'form_filtr.j2' %}
+      </div>
+    </div>
+    <!-- ---------------------------------------------- -->
+    {% endblock main %}        
 </main>
 
 {% block footer%}
@@ -275,6 +329,12 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
   </div>
 </footer>        
 {% endblock footer %}
+
+<style>
+  td,th {
+    text-align: center;
+  }
+</style>
 
 <script>
   function readSelect(id){
@@ -291,7 +351,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
      // Select the dropdown menu element
   function addDropdownMenuItem(id,menu_items) {
 
-    const dropdownMenu = document.querySelector(`#dropdownMenu${id.replace('.','_')}`);
+    const dropdownMenu = document.querySelector(`#dropdownMenu${id.replaceAll('.','_')}`);
 
     if (!sessionStorage.getItem(id)){
       sessionStorage.setItem(id, id);
@@ -342,14 +402,22 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
    ul.classList.add('added');
  }); -->
 
-<!-- <style>
-  .td .dropdown-menu:hover,
-  .td .dropdown-menu:focus
-  {
-    class: show;
-    
-  }
-</style> -->
+<style>
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  z-index: 1;
+}
+
+.table-container {
+  margin-top: 187px; /* высота header'a */
+  overflow-y: scroll;
+  height: calc(100vh - 187px); /* высота экрана минус высота header'a */
+}
+</style>
 
 <!-- 
 <style>
