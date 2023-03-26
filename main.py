@@ -17,7 +17,7 @@ db.init_app(app)
 
 @app.route("/selectJson/<id>",methods=['GET', 'POST'])
 def selectJson(id):
-    data:Games=Games.query.filter(Games.id_game_group == id.split('.')[0]).all()
+    data:Games = Games.query.filter(Games.id_game_group == id.split('.')[0]).all()
     res=';'.join(f"{game.id_game}':'{game.name_game} {game.name_game_ext if game.name_game_ext else ''} " for game in data)
     # a=jsonify(data)
     # for game in data:

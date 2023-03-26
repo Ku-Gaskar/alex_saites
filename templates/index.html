@@ -4,44 +4,7 @@
 
 <header >
 {% block header %}
-<style>
-  :root {
-      --border-width: 1px;
-      --border-color:blue;
-       /* #CED4DA; */
-      --border: var(--border-width) solid var(--border-color);
-  }
-  
-  table {
-    border-collapse: separate;
-    border-spacing: 1;
-    background-color:white;
-  }
-  
-  thead {
-      background-color:white;
-      position: sticky;
-      top: 100px;
-      z-index: 1;
-  }
-  
-  th, td {
-      border:var(--border); ;
-      /* border-right: var(--border);
-      border-bottom: var(--border);
-      border-left: var(--border);
-      border-top: var(--border); */
-  }
-  
-  /* th:first-child, td:first-child {
-      border-left: var(--border);
-  }
-  
-  thead tr:first-child th {
-      border-top: var(--border);
-  } */
-  
-  </style>
+
 <!-- <div class="container-fluid " >
   <div class="table-responsive "> -->
     <!-- table-striped	 -->
@@ -166,9 +129,10 @@
           <!-- название с выпадающим меню -->
           <td class="justify-content-between">
             <div class="d-flex justify-content-between align-items-center ">
-            <span>{{ item.name_game }}
-               {% if  item.name_game_ext %}{{ item.name_game_ext }}{% endif %}</span>
-                
+            <a class="text-decoration-none" data-id-game="{{ item.id_game }}" href="#" target="_blank" rel="noopener noreferrer">
+              <span>{{ item.name_game }}
+                 {% if  item.name_game_ext %}{{ item.name_game_ext }}{% endif %}</span>
+            </a>    
                
             <!-- <div> -->
             <div class="dropdown ">
@@ -304,16 +268,7 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
     <!-- ---------------------------------------------- -->
     <!-- Фильтр (offcanvas) боковая панель с формой ------>
     <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="staticBackdropLabel">Настройка фильтра</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-      </div>
-      <div class="offcanvas-body">
-        <!-- <div> -->
-          <h2>Выбери меня</h2>   
-        <!-- </div> -->
-        {% include 'form_filtr.j2' %}
-      </div>
+      {% include 'form_filtr.html' %}
     </div>
     <!-- ---------------------------------------------- -->
     {% endblock main %}        
@@ -367,30 +322,19 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
 
 
 
-    if (  dropdownMenu.classList.contains('show')) {
-      dropdownMenu.classList.remove('show');
-    }
-      else{ 
-        for (let item of document.querySelectorAll(".dropdown-menu")){
-          if (  item.classList.contains('show')) {
-                    item.classList.remove('show');          
-          }  
-        };  
-        dropdownMenu.classList.add('show');
-
+    
+    for (let item of document.querySelectorAll(".dropdown-menu")){
+      if (  item !== dropdownMenu ) {
+        item.classList.remove('show');          
       }
-
-    // const dropdownButton = document.querySelector('#dropdownMenuButton');
-    // dropdownButton.addEventListener('click', function() {
-    // dropdownButton.setAttribute('aria-expanded', 'true');
-  // });
+    }      
+    dropdownMenu.classList.toggle('show')
+  
   };
-    window.onload = (event) => {  
+    window.onload = () => {  
       sessionStorage.clear();
 };
 </script>
-
-
 
 
 
@@ -417,6 +361,43 @@ Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum, facilis vo
   overflow-y: scroll;
   height: calc(100vh - 187px); /* высота экрана минус высота header'a */
 }
+ :root {
+      --border-width: 1px;
+      --border-color:blue;
+       /* #CED4DA; */
+      --border: var(--border-width) solid var(--border-color);
+  }
+  
+  table {
+    border-collapse: separate;
+    border-spacing: 1;
+    background-color:white;
+  }
+  
+  thead {
+      background-color:white;
+      position: sticky;
+      top: 100px;
+      z-index: 1;
+  }
+  
+  th, td {
+      border:var(--border); ;
+      /* border-right: var(--border);
+      border-bottom: var(--border);
+      border-left: var(--border);
+      border-top: var(--border); */
+  }
+  
+  /* th:first-child, td:first-child {
+      border-left: var(--border);
+  }
+  
+  thead tr:first-child th {
+      border-top: var(--border);
+  } */
+  
+
 </style>
 
 <!-- 
