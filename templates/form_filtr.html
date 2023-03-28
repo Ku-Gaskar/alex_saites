@@ -1,12 +1,153 @@
 
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title" id="staticBackdropLabel">Настройка фильтра</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
-  </div>
+{% macro multiRange ( title ,name_item ,form_min,form_max) %}
+<div class="border-bottom border-primary mb-3">
+  <h6>{{ title }}</h6>          
+  <div class="row justify-content-center align-items-center g-2">
+    <div class="col-4  d-inline-block ">
+      <span>от</span>
+      <div class="col-7 border d-inline-block text-center" ><output id="min_output_{{ name_item}}" for="{{'min_'+ name_item }}"></output></div>
+     </div>
+     <div class="col-4 d-inline-block  ms-3  text-left">
+       <span>до</span>
+       <div class="col-7 border d-inline-block  text-center" ><output id="max_output_{{ name_item}}" for="{{'max_' + name_item }}"></output></div>
+     </div>
+   </div>
+   <div class="row   justify-content-center align-items-center">
+     <div class="col ps-3">
+       {{ form_min }}
+     </div>
+     <div class="col">
+       {{ form_max }}
+     </div>
+   </div>
+</div>
+{% endmacro%} 
+
+<div class="offcanvas-header">
+  <h5 class="offcanvas-title" id="staticBackdropLabel">Настройка фильтра</h5>
+  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Закрыть"></button>
+</div>
   
   <div class="offcanvas-body">
     <form method="post" action="/">
-    <div class="form-check">
+      {{ form.csrf_token }}
+
+      <div class="container">
+        <div class="border-bottom border-primary mb-3">  
+        {{ form.avable  }}
+        {{ form.avable.label }}
+        </div>
+        {{ multiRange('Границы цен (грн.):','price', form.min_price(style="direction:rtl;") , form.max_price) }}
+        {{ multiRange('Количество игроков:','people', form.min_people(style="direction:rtl;") , form.max_people) }}
+        {{ multiRange('Время партии (мин):','time_game', form.min_time_game(style="direction:rtl;") , form.max_time_game) }}
+        {{ multiRange('Возраст игроков (год):','age', form.min_age(style="direction:rtl;") , form.max_age) }}
+        <div class="border-bottom border-primary mb-3">  
+          <h6>Состав игры:</h6>
+          <div class="row justify-content-center align-items-center g-2">
+            <div class="col-12 ">
+              {{ form.cards }}
+              {{ form.cards.label }}
+              {{ form.cubes(class="ms-5") }}
+              {{ form.cubes.label }}
+              {{ form.tiles (class="ms-5")}}
+              {{ form.tiles.label }}          
+            </div>
+            <div class="col-12">
+              {{ form.fields }}
+              {{ form.fields.label }}
+              {{ form.chips (class="ms-3")}}
+              {{ form.chips.label }}
+              {{ form.tokens (class="ms-3")}}
+              {{ form.tokens.label }}
+            </div>
+            <div class="col-12">
+              {{ form.card_holders }}
+              {{ form.card_holders.label }}
+            </div>
+            <div class="col-12">
+              {{ form.add_elements }}
+              {{ form.add_elements.label }}
+            </div>
+          </div>
+        </div>  
+        <div class="border-bottom border-primary mb-3">
+          <h6>Бренд (Производитель):</h6>
+          {{ form.brand(class="m-2 px-2")  }}
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Языки:</h6>
+          {{ form.depend_lang(class="mb-2")  }}
+          {{ form.depend_lang.label  }}
+          <h6>Язык:</h6>
+          {{ form.lang(class="mb-2 ps-5  list-unstyled")  }}
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Игра/Дополнение:</h6>
+          
+          <!-- {{ form.game_or_add(class="mb-2")  }} -->
+          <div class="btn-group m-3" role="group" aria-label="Basic checkbox toggle button group">
+            <input type="radio" checked class="btn-check" name="game_or_add" id="game_or_add-0" autocomplete="off">
+            <label class="btn btn-outline-primary" for="game_or_add-0">Игра</label>
+            
+            <input type="radio" class="btn-check" name="game_or_add" id="game_or_add-1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="game_or_add-1">Дополнение</label>
+          </div>
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Об игре:</h6>
+          {{ form.state.label  }}
+          {{ form.state(class="mb-2 ps-5 list-unstyled")  }}
+          {{ form.year_realise.label  }}
+          {{ form.year_realise(class="m-2 px-2")  }}
+          <div>
+            {{ form.edit_number.label  }}
+            {{ form.edit_number(class="mb-2 ps-4  list-unstyled")  }}
+          </div>
+          {{ form.author.label}}
+          {{ form.author(class="m-2 px-2")  }}
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Вид игры:</h6>
+          {{ form.type_game(class="mb-2 ps-5 list-unstyled")  }}
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Реиграбельность игры:</h6>
+          <span><p class="d-inline-block align-top" >низкая</p> {{ form.re_gamers(class="m-2 d-inline-block")  }} <p class="d-inline-block align-top">высокая</p> </span>
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Рандом в игре:</h6>
+          <span><p class="d-inline-block align-top" >низкий</p> {{ form.random_game(class="m-2 d-inline-block")  }} <p class="d-inline-block align-top">высокий</p> </span>
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Уровень вхождения в игру:</h6>
+          <span><p class="d-inline-block align-top" >низкий</p> {{ form.level_input(class="m-2 d-inline-block")  }} <p class="d-inline-block align-top">высокий</p> </span>
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Сложность игры:</h6>
+          <span><p class="d-inline-block align-top" >низкая</p> {{ form.intricacy_game(class="m-2 d-inline-block")  }} <p class="d-inline-block align-top">высокая</p> </span>
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Уровень сложности правил игры:</h6>
+          <span><p class="d-inline-block align-top" >низкий</p> {{ form.intricacy_rule(class="m-2 d-inline-block")  }} <p class="d-inline-block align-top">высокий</p> </span>
+        </div>
+        <div class="border-bottom border-primary mb-3">
+          <h6>Рейтинг  игры:</h6>
+          <span><p class="d-inline-block align-top" >низкий</p> {{ form.rating(class="m-2 d-inline-block")  }} <p class="d-inline-block align-top">высокий</p> </span>
+        </div>
+      </div>
+
+      
+
+      
+
+    
+    
+      
+      
+      
+      
+    
+      <!-- <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="12345">
       <label class="form-check-label" for="">
         Default checkbox
@@ -29,16 +170,6 @@
         </select>
     </div>
     </div>
-    <div class="btn-group m-3" role="group" aria-label="Basic checkbox toggle button group">
-      <input type="radio" class="btn-check" name="btnradio" id="btncheck1" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck1">First One</label>
-
-      <input type="radio" class="btn-check" name="btnradio" id="btncheck2" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck2">Second One</label>
-
-      <input type="radio" class="btn-check" name="btnradio" id="btncheck3" autocomplete="off">
-      <label class="btn btn-outline-primary" for="btncheck3">Third One</label>
-    </div>
 
     <div class="form-check" role="group">
       <input class="form-check-input" type="radio" name="1" id="1111">
@@ -57,8 +188,95 @@
       <label class="form-check-label" for="222">
         Default checked radio
       </label>
-    </div>
+    </div> -->
 
     </form>
   </div>
 
+  <script>
+ //-------------рисование в строку radio check-------------   
+ for(let it of edit_number.querySelectorAll('li')){
+  it.classList.add('form-check-inline')
+ }
+ 
+//  let fl_type = false
+//  for(let it of type_game.querySelectorAll('li')){
+//   fl_type ? it.classList.add('form-check-inline') : NaN;
+//   fl_type = !fl_type;
+//  }
+
+ //----------- обработка price------------------------
+    const max_priceG = 10000;
+
+    min_output_price.value = 1;
+    max_output_price.value = max_priceG;
+  
+  min_price.addEventListener('input', function() {
+    min_output_price.value = max_priceG  - min_price.value;
+    max_price.min = min_output_price.value; 
+    
+  });
+  
+  max_price.addEventListener('input', function() {
+    max_output_price.value = max_price.value;
+    min_price.min = max_priceG - max_output_price.value; 
+  });
+ //------------------------------------------------
+ //----------- обработка людей --------------------
+    const max_piopleG=100;
+
+    min_output_people.value = 1;
+    max_output_people.value = max_piopleG;
+
+
+    min_people.addEventListener('input', function() {
+      min_output_people.value = max_piopleG - min_people.value;
+      max_people.min = min_output_people.value; 
+      
+    });
+    
+    max_people.addEventListener('input', function() {
+      max_output_people.value = max_people.value;
+      min_people.min = max_piopleG - max_output_people.value; 
+    });
+
+ //------------------------------------------------
+ //----------- обработка времени --------------------
+    const max_timeG=600;
+
+    min_output_time_game.value = 1;
+    max_output_time_game.value = max_timeG;
+
+
+    min_time_game.addEventListener('input', function() {
+      min_output_time_game.value = max_timeG - min_time_game.value;
+      max_time_game.min = min_output_time_game.value; 
+      
+    });
+    
+    max_time_game.addEventListener('input', function() {
+      max_output_time_game.value = max_time_game.value;
+      min_time_game.min = max_timeG - max_output_time_game.value; 
+    });
+
+ //------------------------------------------------
+ //----------- обработка возраста --------------------
+    const max_ageG=80;
+
+    min_output_age.value = 1;
+    max_output_age.value = max_ageG;
+
+
+    min_age.addEventListener('input', function() {
+      min_output_age.value = max_ageG - min_age.value;
+      max_age.min = min_output_age.value; 
+      
+    });
+    
+    max_age.addEventListener('input', function() {
+      max_output_age.value = max_age.value;
+      min_age.min = max_ageG - max_output_age.value; 
+    });
+
+  //------------------------------------------------
+  </script>

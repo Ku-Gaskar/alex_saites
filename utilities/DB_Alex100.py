@@ -2,6 +2,7 @@ import psycopg2.extensions
 import psycopg2 
 from psycopg2 import Error
 
+
 class   DB_100:
     def __init__(self):
         self.__db : psycopg2.extensions.connection = None

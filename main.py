@@ -1,6 +1,9 @@
 
 from flask import Flask, render_template,request,redirect,url_for
 from psycopg2 import Error
+from forms import FilterForm
+import secrets
+
 
 
 from DB_SQL_Alchemy import Games,db
@@ -8,6 +11,7 @@ from DB_SQL_Alchemy import Games,db
 
 app = Flask(__name__)
 
+app.config['SECRET_KEY'] = secrets.token_hex(16)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgress@localhost/alex_100'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
@@ -46,6 +50,8 @@ def searchGame():
 @app.route('/index',methods=['GET', 'POST'])
 def index():
     
+    form = FilterForm()
+
     if request.method== 'GET':
         print(request.url)
 
@@ -57,8 +63,8 @@ def index():
     except (Exception,Error) as error:
         print(f"Ошибка чтения из БД:{error}")
 
-    return render_template('index.html',content=content)
+    return render_template('index.html',content=content, form = form )
 
 if __name__ == '__main__':
-    app.run(host='localhost', port=8000, debug=True)
+    app.run(host='localhost', port=8000, debug=True )
  
